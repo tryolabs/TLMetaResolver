@@ -19,8 +19,9 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         resolvingMetaTags = false
+        pageUrl = NSURL(string:"http://www.google.com")!
 //        pageUrl = NSURL(string:"http://swaggy-life.tumblr.com/")!
-        pageUrl = NSURL(string:"http://www.ted.com/talks/nadine_burke_harris_how_childhood_trauma_affects_health_across_a_lifetime")!
+//        pageUrl = NSURL(string:"http://www.ted.com/talks/nadine_burke_harris_how_childhood_trauma_affects_health_across_a_lifetime")!
         
         webView.loadRequest(NSURLRequest(URL: pageUrl))
     }

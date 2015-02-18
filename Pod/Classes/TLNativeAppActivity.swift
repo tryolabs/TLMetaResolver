@@ -10,18 +10,36 @@ import Foundation
 import UIKit
 
 
+/**
+    This is a subclass of UIActivity that open a native app using the supported custom scheme. The icon is showed in grayscale with the sice adjusted to the running devices.
+*/
 class TLNativeAppActivity: UIActivity {
     
     var url: NSURL
     var name: String
     var icon: UIImage
     
+    /**
+        Create a new TLNativeAppActivity with the given parameters.
+    
+        :param: appUrl The url used to open the native app. When this activity is permormed a call to 'UIApplication.sharedApplication().openURL()' is performed with this value.
+        :param: appName The name of the app used, mostly, to show the activity title in a UIActivityViewController
+        :param: appIcon The image to use as the activity icon. This image should be a square image of any size, preferible of 76 points of bigger because it will be scaled to that size on iPad (and to 60 points on iPhone)
+    
+        :returns: A new instance of TLNativeAppActivity that can be shown in a UIActivityViewController
+    */
     init(appUrl: NSURL, applicationName appName: String, andIcon appIcon: UIImage) {
         url = appUrl
         name = appName
         
+        //Scale the image to the correct size for an activity icon, according to the documentation
         let scale: CGFloat = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? 60 : 76
-        let scaledGrayImage = appIcon.imageByScaleToSize(CGSizeMake(scale, scale)).convertToGrayscale()
+        let scaledImage = appIcon.imageByScaleToSize(CGSizeMake(scale, scale))
+        
+        //Transform it to grayscale
+        let scaledGrayImage = scaledImage.convertToGrayscale()
+        
+        //Mask it so it has the correct shape
         let iconMask = UIImage(named: "iconMask")!
         icon = scaledGrayImage.imageByApplyingMask(iconMask)
     }
@@ -31,7 +49,7 @@ class TLNativeAppActivity: UIActivity {
     }
     
     override func activityType() -> String? {
-        return "open.\(name)"
+        return NSBundle.mainBundle().bundleIdentifier! + "open.\(name)"
     }
     
     override func activityTitle() -> String? {

@@ -65,7 +65,10 @@ function parseMetaTags(isIPad) {
             break;
     }
     
-    return JSON.stringify(metaInfo);
+    if (Object.keys(metaInfo).length != 0)
+        return JSON.stringify(metaInfo);
+    else
+        return null
 }
 
 function parseAppleMetaTag(metaTagContent) {
