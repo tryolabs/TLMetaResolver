@@ -50,13 +50,6 @@ private extension NSDictionary {
 
 extension UIWebView {
     
-    func resolveMetaTags () {
-        resolveMetaTags { (activity: TLNativeAppActivity?) -> () in
-            print("Resolve complete: ")
-            println(activity)
-        }
-    }
-    
     func resolveMetaTags (onComplete: TLMetaResolverComplete) {
         
         let fetchUrl = defatulFetchUrl()
@@ -207,9 +200,13 @@ extension UIWebView {
                         fetchImage(itunesAppInfo.iconUrl, {
                             (data: NSData) -> () in
                             
-                            let image = UIImage(data: data)
-                            let activity = TLNativeAppActivity()
-                            onComplete(activity)
+                            if let image = UIImage(data: data) {
+                                let activity = TLNativeAppActivity(appUrl: appInfo.url, applicationName: itunesAppInfo.appName, andIcon: image)
+                                onComplete(activity)
+                            } else {
+                                NSLog("Can't parse image data or it's not a valid image")
+                                onComplete(nil)
+                            }
                             
                         }, {
                             (error: NSError) -> () in
@@ -239,9 +236,3 @@ extension UIWebView {
         }
     }
 }
-
-
-
-
-
-
