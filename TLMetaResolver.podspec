@@ -9,30 +9,19 @@
 
 Pod::Spec.new do |s|
   s.name             = "TLMetaResolver"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of TLMetaResolver."
-  s.description      = <<-DESC
-                       An optional longer description of TLMetaResolver
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/TLMetaResolver"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.version          = "0.0.1"
+  s.summary          = "TLMetaResolver is an extension to UIWebView that adds the ability to parse the meta tags in the loaded web page."
+  s.homepage         = "https://github.com/tryolabs/TLMetaResolver"
   s.license          = 'MIT'
   s.author           = { "BrunoBerisso" => "bruno@tryolabs.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/TLMetaResolver.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/tryolabs/TLMetaResolver.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'TLMetaResolver' => ['Pod/Assets/*.png']
+    'TLMetaResolver' => ['Pod/Assets/**/*']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

@@ -1,11 +1,10 @@
 # TLMetaResolver
 
-[![CI Status](http://img.shields.io/travis/BrunoBerisso/TLMetaResolver.svg?style=flat)](https://travis-ci.org/BrunoBerisso/TLMetaResolver)
 [![Version](https://img.shields.io/cocoapods/v/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
 [![License](https://img.shields.io/cocoapods/l/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
 [![Platform](https://img.shields.io/cocoapods/p/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
 
-TLMetaResolver is an extension to UIWebView that adds the ability to parse the meta tags in the loaded web page and extract information about a native app that can be deep linked from that page. This method is used for Twitter and Facebook to deep link to a native app from a posted web page. The meta tags definitions handled for TLMetaResolver are:
+TLMetaResolver is an extension to UIWebView writen in Swift that adds the ability to parse the meta tags in the loaded web page and extract information about a native app that can be deep linked from that page. This method is used for Twitter and Facebook to deep link to a native app from a posted web page. The meta tags definitions handled for TLMetaResolver are:
 
 - [Twitter App Cards](https://dev.twitter.com/cards/types/app)
 - [Facebook App Link](http://applinks.org/documentation/)
@@ -44,11 +43,17 @@ it, simply add the following line to your Podfile:
 
     pod "TLMetaResolver"
 
-You can always do a quick check with:
+You can also do a quick check with:
 
     pod try TLMetaResolver
 
+Keep in mind that the Swift support in CocoaPods is in beta. If you want to try TLMetaResolver with CocoaPods first install the last beta for the version 0.36 (at the time of writing this the last one is 0.36.beta.2) with ``sudo gem install cocoapods --pre``. [This blog post](http://iosdevbits.blogspot.com/2014/12/finally-cocoapods-with-swift.html) can be usefull if you have any problem, for a complete explanation check the [Pod Authors Guide to CocoaPods Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/).
+
 Or opt to clone the repo and integrate the code and assets under the Pod/ directory to your project as you like.
+
+## Requirements
+
+iOS >= 8.0
 
 ## Author
 

@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = TLMetaParser.js; sourceTree = "<group>"; };
+		9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = TLMetaParser.js; path = ../Assets/TLMetaParser.js; sourceTree = "<group>"; };
 		9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCABA591A8D0BD600F8CA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
