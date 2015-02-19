@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9B4ED9E21A936A65000CC2A4 /* TLMetaParser.js in Resources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */; };
+		9B4ED9E61A951F3E000CC2A4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */; };
 		9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */; };
-		9BCABA5D1A8D0BD600F8CA71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5C1A8D0BD600F8CA71 /* ViewController.swift */; };
+		9BCABA5D1A8D0BD600F8CA71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */; };
 		9BCABA601A8D0BD600F8CA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA5E1A8D0BD600F8CA71 /* Main.storyboard */; };
 		9BCABA621A8D0BD600F8CA71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA611A8D0BD600F8CA71 /* Images.xcassets */; };
 		9BCABA651A8D0BD600F8CA71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA631A8D0BD600F8CA71 /* LaunchScreen.xib */; };
@@ -19,10 +20,11 @@
 
 /* Begin PBXFileReference section */
 		9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = TLMetaParser.js; sourceTree = "<group>"; };
+		9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCABA591A8D0BD600F8CA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BCABA5C1A8D0BD600F8CA71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9BCABA5F1A8D0BD600F8CA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BCABA611A8D0BD600F8CA71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9BCABA641A8D0BD600F8CA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -62,7 +64,8 @@
 			children = (
 				9BCABA7A1A8E2CDE00F8CA71 /* Classes */,
 				9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */,
-				9BCABA5C1A8D0BD600F8CA71 /* ViewController.swift */,
+				9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */,
+				9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */,
 				9BCABA5E1A8D0BD600F8CA71 /* Main.storyboard */,
 				9BCABA611A8D0BD600F8CA71 /* Images.xcassets */,
 				9BCABA631A8D0BD600F8CA71 /* LaunchScreen.xib */,
@@ -161,7 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BCABA5D1A8D0BD600F8CA71 /* ViewController.swift in Sources */,
+				9B4ED9E61A951F3E000CC2A4 /* FirstViewController.swift in Sources */,
+				9BCABA5D1A8D0BD600F8CA71 /* SecondViewController.swift in Sources */,
 				9BCABA801A8E43BA00F8CA71 /* TLNativeAppActivity.swift in Sources */,
 				9BCABA7E1A8E2CF600F8CA71 /* TLMetaResolver.swift in Sources */,
 				9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */,
@@ -274,6 +278,7 @@
 				INFOPLIST_FILE = TLMetaResolver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -284,6 +289,7 @@
 				INFOPLIST_FILE = TLMetaResolver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

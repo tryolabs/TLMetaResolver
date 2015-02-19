@@ -80,6 +80,8 @@ private extension NSDictionary {
     The functions are really one function and one homonymous with less parameters that make the use simpler.
 
     On every case all the possible error cases are handled. A message is loged to the system with NSLog() and the callback is called with nil.
+
+    Note: this is the documentation for the iTunes Search API https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
 */
 extension UIWebView {
     
@@ -287,10 +289,10 @@ extension UIWebView {
                                 
                                 if let image = UIImage(data: data) {
                                     let activity = TLNativeAppActivity(appUrl: appInfo.url, applicationName: itunesAppInfo.appName, andIcon: image)
-                                    onComplete(activity)
+                                    self.performOnMain { onComplete(activity) }
                                 } else {
                                     NSLog("Can't parse image data or it's not a valid image")
-                                    onComplete(nil)
+                                    self.performOnMain { onComplete(nil) }
                                 }
                                 
                             }, {
@@ -298,21 +300,21 @@ extension UIWebView {
                                 (error: NSError) -> () in
                                 
                                 NSLog("Can't fetch image: %@", error.description)
-                                onComplete(nil)
+                                self.performOnMain { onComplete(nil) }
                             })
                         } else {
                             NSLog("Can't find the provided app id on iTunes: %@", appInfo.appId)
-                            onComplete(nil)
+                            self.performOnMain { onComplete(nil) }
                         }
                         
                     } else {
                         NSLog("Bad response form iTunes, object is not a dictionary")
-                        onComplete(nil)
+                        self.performOnMain { onComplete(nil) }
                     }
                     
                 } else {
                     NSLog("Can't parse iTunes response: %@", error!.description)
-                    onComplete(nil)
+                    self.performOnMain { onComplete(nil) }
                 }
                 
             }, {
@@ -320,12 +322,16 @@ extension UIWebView {
                 (error: NSError) -> () in
                 
                 NSLog("Can't get info from iTunes: %@", error.description)
-                onComplete(nil)
+                self.performOnMain { onComplete(nil) }
             })
             
         } else {
             NSLog("Can't open url: \(appInfo.url)")
             onComplete(nil)
         }
+    }
+    
+    func performOnMain (closure: () -> ()) {
+        dispatch_async(dispatch_get_main_queue(), closure)
     }
 }

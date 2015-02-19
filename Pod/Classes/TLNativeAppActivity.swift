@@ -61,7 +61,13 @@ class TLNativeAppActivity: UIActivity {
     }
     
     override func performActivity() {
-        UIApplication.sharedApplication().openURL(url)
+        
+        #if arch(i386) || arch(x86_64)
+            NSLog("App URL: \(url)")
+        #else
+            UIApplication.sharedApplication().openURL(url)
+        #endif
+        
         activityDidFinish(true)
     }
 }
