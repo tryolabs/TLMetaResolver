@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
 [![License](https://img.shields.io/cocoapods/l/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
 [![Platform](https://img.shields.io/cocoapods/p/TLMetaResolver.svg?style=flat)](http://cocoadocs.org/docsets/TLMetaResolver)
+[![Laguage](https://img.shields.io/badge/language-Swift-orange.svg)](https://developer.apple.com/swift/)
 
 TLMetaResolver is an extension to UIWebView writen in Swift that adds the ability to parse the meta tags in the loaded web page and extract information about a native app that can be deep linked from that page. This method is used for Twitter and Facebook to deep link to a native app from a posted web page. The meta tags definitions handled for TLMetaResolver are:
 
