@@ -10,7 +10,7 @@ TLMetaResolver is an extension to UIWebView writen in Swift that adds the abilit
 - [Facebook App Link](http://applinks.org/documentation/)
 - [Apple Smart Banner](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
 
-## How it work
+## How it works
 
 TLMetaResolver adds a funtion to UIWebView that evaluate a JavaScript script in the context of the loaded web page. This script returns an _app id_ and _url_. The _app id_ is the id of the native app on iTunes, the _url_ is a special url used to fire the native app.
 
