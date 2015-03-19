@@ -17,7 +17,7 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     private var timer: NSTimer!
     private var resolvingMetaTags: Bool!
-    private var nativeActivity: TLNativeAppActivy!
+    private var nativeActivity: TLNativeAppActivity!
     
     override func viewDidLoad() {
         super.viewDidLoad()

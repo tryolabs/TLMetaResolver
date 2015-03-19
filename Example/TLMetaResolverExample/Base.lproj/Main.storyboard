@@ -7,7 +7,7 @@
         <!--First View Controller-->
         <scene sceneID="JLR-7E-OcM">
             <objects>
-                <tableViewController id="fO6-Te-Qpn" customClass="FirstViewController" customModule="TLMetaResolver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fO6-Te-Qpn" customClass="FirstViewController" customModule="TLMetaResolverExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BS2-4x-X1B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +140,7 @@
         <!--Second View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SecondViewController" customModule="TLMetaResolver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SecondViewController" customModule="TLMetaResolverExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>

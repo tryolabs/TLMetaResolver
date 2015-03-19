@@ -1,0 +1,19 @@
+PODS:
+  - TLMetaResolver (0.0.1)
+
+DEPENDENCIES:
+  - TLMetaResolver (from `https://github.com/tryolabs/TLMetaResolver`)
+
+EXTERNAL SOURCES:
+  TLMetaResolver:
+    :git: https://github.com/tryolabs/TLMetaResolver
+
+CHECKOUT OPTIONS:
+  TLMetaResolver:
+    :commit: 2a6a0af1c5ce6c1f2b2cdbf23c116692b84c82b9
+    :git: https://github.com/tryolabs/TLMetaResolver
+
+SPEC CHECKSUMS:
+  TLMetaResolver: 51232d714e5f975069fa3233a23a348369167562
+
+COCOAPODS: 0.36.0
