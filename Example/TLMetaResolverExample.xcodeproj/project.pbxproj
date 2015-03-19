@@ -7,31 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B4ED9E21A936A65000CC2A4 /* TLMetaParser.js in Resources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */; };
+		10114AD3C28200B3E2E86213 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55514970721C0AA6ABAFB8BE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9B4ED9E61A951F3E000CC2A4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */; };
-		9B83149F1ABB439C00743840 /* TLBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83149E1ABB439C00743840 /* TLBundleExtension.swift */; };
 		9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */; };
 		9BCABA5D1A8D0BD600F8CA71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */; };
 		9BCABA601A8D0BD600F8CA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA5E1A8D0BD600F8CA71 /* Main.storyboard */; };
 		9BCABA621A8D0BD600F8CA71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA611A8D0BD600F8CA71 /* Images.xcassets */; };
 		9BCABA651A8D0BD600F8CA71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA631A8D0BD600F8CA71 /* LaunchScreen.xib */; };
-		9BCABA7E1A8E2CF600F8CA71 /* TLMetaResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA7D1A8E2CF600F8CA71 /* TLMetaResolver.swift */; };
-		9BCABA801A8E43BA00F8CA71 /* TLNativeAppActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA7F1A8E43BA00F8CA71 /* TLNativeAppActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = TLMetaParser.js; path = ../Assets/TLMetaParser.js; sourceTree = "<group>"; };
+		55514970721C0AA6ABAFB8BE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771E2D8196D0D6B77426FAA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		9B83149E1ABB439C00743840 /* TLBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundleExtension.swift; sourceTree = "<group>"; };
-		9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B819BB01ABB4B1B00D4362A /* TLMetaResolver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TLMetaResolver.framework; path = "Pods/../build/Debug-iphoneos/Pods/TLMetaResolver.framework"; sourceTree = "<group>"; };
+		9B8314A01ABB497200743840 /* TLMetaResolver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TLMetaResolver.framework; path = "Pods/../build/Debug-iphoneos/Pods/TLMetaResolver.framework"; sourceTree = "<group>"; };
+		9BCABA551A8D0BD600F8CA71 /* TLMetaResolverExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolverExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCABA591A8D0BD600F8CA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9BCABA5F1A8D0BD600F8CA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BCABA611A8D0BD600F8CA71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9BCABA641A8D0BD600F8CA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9BCABA7D1A8E2CF600F8CA71 /* TLMetaResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLMetaResolver.swift; sourceTree = "<group>"; };
-		9BCABA7F1A8E43BA00F8CA71 /* TLNativeAppActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLNativeAppActivity.swift; sourceTree = "<group>"; };
+		AA30C2CC141F1FF009629A11 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,24 +37,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10114AD3C28200B3E2E86213 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7019AA3760FE08224E873B26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA30C2CC141F1FF009629A11 /* Pods.debug.xcconfig */,
+				771E2D8196D0D6B77426FAA0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		86B73AFC55DC7C96CF6A01F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B819BB01ABB4B1B00D4362A /* TLMetaResolver.framework */,
+				9B8314A01ABB497200743840 /* TLMetaResolver.framework */,
+				55514970721C0AA6ABAFB8BE /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9BCABA4C1A8D0BD600F8CA71 = {
 			isa = PBXGroup;
 			children = (
 				9BCABA571A8D0BD600F8CA71 /* TLMetaResolver */,
 				9BCABA561A8D0BD600F8CA71 /* Products */,
+				7019AA3760FE08224E873B26 /* Pods */,
+				86B73AFC55DC7C96CF6A01F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9BCABA561A8D0BD600F8CA71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */,
+				9BCABA551A8D0BD600F8CA71 /* TLMetaResolverExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +84,6 @@
 		9BCABA571A8D0BD600F8CA71 /* TLMetaResolver */ = {
 			isa = PBXGroup;
 			children = (
-				9BCABA7A1A8E2CDE00F8CA71 /* Classes */,
 				9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */,
 				9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */,
 				9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */,
@@ -84,36 +103,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9BCABA7A1A8E2CDE00F8CA71 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				9B83149E1ABB439C00743840 /* TLBundleExtension.swift */,
-				9BCABA7D1A8E2CF600F8CA71 /* TLMetaResolver.swift */,
-				9BCABA7F1A8E43BA00F8CA71 /* TLNativeAppActivity.swift */,
-				9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */,
-			);
-			name = Classes;
-			path = ../../Pod/Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9BCABA541A8D0BD600F8CA71 /* TLMetaResolver */ = {
+		9BCABA541A8D0BD600F8CA71 /* TLMetaResolverExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BCABA741A8D0BD600F8CA71 /* Build configuration list for PBXNativeTarget "TLMetaResolver" */;
+			buildConfigurationList = 9BCABA741A8D0BD600F8CA71 /* Build configuration list for PBXNativeTarget "TLMetaResolverExample" */;
 			buildPhases = (
+				4D452E4387AA3E24312DF170 /* Check Pods Manifest.lock */,
 				9BCABA511A8D0BD600F8CA71 /* Sources */,
 				9BCABA521A8D0BD600F8CA71 /* Frameworks */,
 				9BCABA531A8D0BD600F8CA71 /* Resources */,
+				D711C81498D7EC59FB6285CA /* Embed Pods Frameworks */,
+				848C4A3CAB9B442B9F42E4DC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TLMetaResolver;
+			name = TLMetaResolverExample;
 			productName = TLMetaResolver;
-			productReference = 9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */;
+			productReference = 9BCABA551A8D0BD600F8CA71 /* TLMetaResolverExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +140,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9BCABA501A8D0BD600F8CA71 /* Build configuration list for PBXProject "TLMetaResolver" */;
+			buildConfigurationList = 9BCABA501A8D0BD600F8CA71 /* Build configuration list for PBXProject "TLMetaResolverExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -143,7 +153,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9BCABA541A8D0BD600F8CA71 /* TLMetaResolver */,
+				9BCABA541A8D0BD600F8CA71 /* TLMetaResolverExample */,
 			);
 		};
 /* End PBXProject section */
@@ -155,12 +165,59 @@
 			files = (
 				9BCABA601A8D0BD600F8CA71 /* Main.storyboard in Resources */,
 				9BCABA651A8D0BD600F8CA71 /* LaunchScreen.xib in Resources */,
-				9B4ED9E21A936A65000CC2A4 /* TLMetaParser.js in Resources */,
 				9BCABA621A8D0BD600F8CA71 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D452E4387AA3E24312DF170 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		848C4A3CAB9B442B9F42E4DC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D711C81498D7EC59FB6285CA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BCABA511A8D0BD600F8CA71 /* Sources */ = {
@@ -169,10 +226,7 @@
 			files = (
 				9B4ED9E61A951F3E000CC2A4 /* FirstViewController.swift in Sources */,
 				9BCABA5D1A8D0BD600F8CA71 /* SecondViewController.swift in Sources */,
-				9BCABA801A8E43BA00F8CA71 /* TLNativeAppActivity.swift in Sources */,
-				9BCABA7E1A8E2CF600F8CA71 /* TLMetaResolver.swift in Sources */,
 				9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */,
-				9B83149F1ABB439C00743840 /* TLBundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,22 +331,32 @@
 		};
 		9BCABA751A8D0BD600F8CA71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA30C2CC141F1FF009629A11 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
+				);
 				INFOPLIST_FILE = TLMetaResolver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TLMetaResolverExample;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		9BCABA761A8D0BD600F8CA71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 771E2D8196D0D6B77426FAA0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"$(BUILT_PRODUCTS_DIR)/**",
+				);
 				INFOPLIST_FILE = TLMetaResolver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TLMetaResolverExample;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -300,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9BCABA501A8D0BD600F8CA71 /* Build configuration list for PBXProject "TLMetaResolver" */ = {
+		9BCABA501A8D0BD600F8CA71 /* Build configuration list for PBXProject "TLMetaResolverExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BCABA721A8D0BD600F8CA71 /* Debug */,
@@ -309,7 +373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BCABA741A8D0BD600F8CA71 /* Build configuration list for PBXNativeTarget "TLMetaResolver" */ = {
+		9BCABA741A8D0BD600F8CA71 /* Build configuration list for PBXNativeTarget "TLMetaResolverExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BCABA751A8D0BD600F8CA71 /* Debug */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TLMetaResolver
 
 class SecondViewController: UIViewController, UIWebViewDelegate {
     
@@ -16,7 +17,7 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     private var timer: NSTimer!
     private var resolvingMetaTags: Bool!
-    private var nativeActivity: TLNativeAppActivity!
+    private var nativeActivity: TLNativeAppActivy!
     
     override func viewDidLoad() {
         super.viewDidLoad()
