@@ -15,21 +15,21 @@ import UIKit
 
     :param: activity An activity instance of TLNativeAppActivity representing the native app declared in the page as able to handle this content
 */
-typealias TLMetaResolverComplete = (TLNativeAppActivity?) -> ()
+public typealias TLMetaResolverComplete = (TLNativeAppActivity?) -> ()
 
 /**
     The closure called when a fetch operation fail
 
     :param: error The error object that cause the fetch to fail
 */
-typealias TLMetaResolverFetchError = (NSError) -> ()
+public typealias TLMetaResolverFetchError = (NSError) -> ()
 
 /**
     The closure called when the fetch succeed
 
     :param: responseData The data resulting of a fetch operation
 */
-typealias TLMetaResolverFetchSuccess = (NSData) -> ()
+public typealias TLMetaResolverFetchSuccess = (NSData) -> ()
 
 /**
     A closure representing a fetch operation.
@@ -38,7 +38,7 @@ typealias TLMetaResolverFetchSuccess = (NSData) -> ()
     :param: successHandler A closure called when the fetch succeed
     :param: errorHandler A closure called when the fetch fail
 */
-typealias TLMetaResolverFetchURL = (NSURL, TLMetaResolverFetchSuccess, TLMetaResolverFetchError) -> ()
+public typealias TLMetaResolverFetchURL = (NSURL, TLMetaResolverFetchSuccess, TLMetaResolverFetchError) -> ()
 
 
 //Direct access to the meta tag info JSON returned from the parser and iTunes lookup
@@ -90,7 +90,7 @@ extension UIWebView {
     
         :param: onComplete A complete handler of type TLMetaResolverComplete that receive as argument an objet of type TLNativeAppActivity?
     */
-    func resolveMetaTags (onComplete: TLMetaResolverComplete) {
+    @objc public func resolveMetaTags (onComplete: TLMetaResolverComplete) {
         resolveMetaTags(nil, nil, onComplete)
     }
     
@@ -101,7 +101,7 @@ extension UIWebView {
         :param: fetchImage An optional closure that will be called to fetch the native app icon from iTunes, if nil is passed the shared NSURLSeesion is used.
         :param: onComplete A complete handler of type TLMetaResolverComplete that receive as argument an objet of type TLNativeAppActivity?
     */
-    func resolveMetaTags (fetchUrl: TLMetaResolverFetchURL?, _ fetchImage: TLMetaResolverFetchURL?, _ onComplete: TLMetaResolverComplete) {
+    @objc public func resolveMetaTags (fetchUrl: TLMetaResolverFetchURL?, _ fetchImage: TLMetaResolverFetchURL?, _ onComplete: TLMetaResolverComplete) {
         
         //Get the js parser
         if let parserJs = metaTagsParserJS() {

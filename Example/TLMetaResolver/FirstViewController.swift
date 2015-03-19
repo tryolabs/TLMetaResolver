@@ -23,7 +23,8 @@ class FirstViewController: UITableViewController {
             "http://swaggy-life.tumblr.com/",
             "https://vimeo.com/channels/staffpicks/117770305",
             "http://www.nachorater.com/",
-            "https://www.flickr.com/photos/godo70/16557550262/in/explore-2015-02-17"
+            "https://www.flickr.com/photos/godo70/16557550262/in/explore-2015-02-17",
+            "https://m.youtube.com/"
         ].map { NSURL(string: $0)! }
         
         let alert = UIAlertController(title: "How it works",

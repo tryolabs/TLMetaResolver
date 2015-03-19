@@ -13,7 +13,7 @@ import UIKit
 /**
     This is a subclass of UIActivity that open a native app using the supported custom scheme. The icon is showed in grayscale with the sice adjusted to the running devices.
 */
-class TLNativeAppActivity: UIActivity {
+public class TLNativeAppActivity: UIActivity {
     
     var url: NSURL
     var name: String
@@ -48,19 +48,19 @@ class TLNativeAppActivity: UIActivity {
         return icon
     }
     
-    override func activityType() -> String? {
+    override public func activityType() -> String? {
         return NSBundle.mainBundle().bundleIdentifier! + "open.\(name)"
     }
     
-    override func activityTitle() -> String? {
+    override public func activityTitle() -> String? {
         return "Open in \(name)"
     }
     
-    override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+    override public func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
         return true
     }
     
-    override func performActivity() {
+    override public func performActivity() {
         
         #if arch(i386) || arch(x86_64)
             NSLog("App URL: \(url)")
@@ -72,7 +72,7 @@ class TLNativeAppActivity: UIActivity {
     }
 }
 
-extension UIImage {
+private extension UIImage {
     
     func imageByApplyingMask (maskImage: UIImage) -> (UIImage) {
         
