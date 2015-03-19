@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B4ED9E21A936A65000CC2A4 /* TLMetaParser.js in Resources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */; };
 		9B4ED9E61A951F3E000CC2A4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */; };
+		9B83149F1ABB439C00743840 /* TLBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83149E1ABB439C00743840 /* TLBundleExtension.swift */; };
 		9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */; };
 		9BCABA5D1A8D0BD600F8CA71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCABA5C1A8D0BD600F8CA71 /* SecondViewController.swift */; };
 		9BCABA601A8D0BD600F8CA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCABA5E1A8D0BD600F8CA71 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = TLMetaParser.js; path = ../Assets/TLMetaParser.js; sourceTree = "<group>"; };
 		9B4ED9E51A951F3E000CC2A4 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		9B83149E1ABB439C00743840 /* TLBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundleExtension.swift; sourceTree = "<group>"; };
 		9BCABA551A8D0BD600F8CA71 /* TLMetaResolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCABA591A8D0BD600F8CA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BCABA5A1A8D0BD600F8CA71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		9BCABA7A1A8E2CDE00F8CA71 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9B83149E1ABB439C00743840 /* TLBundleExtension.swift */,
 				9BCABA7D1A8E2CF600F8CA71 /* TLMetaResolver.swift */,
 				9BCABA7F1A8E43BA00F8CA71 /* TLNativeAppActivity.swift */,
 				9B4ED9E11A936A65000CC2A4 /* TLMetaParser.js */,
@@ -169,6 +172,7 @@
 				9BCABA801A8E43BA00F8CA71 /* TLNativeAppActivity.swift in Sources */,
 				9BCABA7E1A8E2CF600F8CA71 /* TLMetaResolver.swift in Sources */,
 				9BCABA5B1A8D0BD600F8CA71 /* AppDelegate.swift in Sources */,
+				9B83149F1ABB439C00743840 /* TLBundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

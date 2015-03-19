@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Bruno Berisso. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -40,7 +39,7 @@ public class TLNativeAppActivity: UIActivity {
         let scaledGrayImage = scaledImage.convertToGrayscale()
         
         //Mask it so it has the correct shape
-        let iconMask = UIImage(named: "iconMask")!
+        let iconMask = UIImage(named: "iconMask", inBundle: NSBundle.metaResolverBundle(), compatibleWithTraitCollection: nil)!
         icon = scaledGrayImage.imageByApplyingMask(iconMask)
     }
     

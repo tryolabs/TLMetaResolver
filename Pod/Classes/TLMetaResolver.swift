@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Bruno Berisso. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 
@@ -181,7 +180,7 @@ extension UIWebView {
     */
     private func metaTagsParserJS () -> String? {
         
-        if let parserPath = NSBundle.mainBundle().pathForResource("TLMetaParser", ofType: "js") {
+        if let parserPath = NSBundle.metaResolverBundle()?.pathForResource("TLMetaParser", ofType: "js") {
             
             var error: NSError?
             if let parserJs = String(contentsOfFile: parserPath, encoding: NSUTF8StringEncoding, error: &error) {
