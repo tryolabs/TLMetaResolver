@@ -73,7 +73,8 @@ function parseMetaTags(isIPad) {
 
 function parseAppleMetaTag(metaTagContent) {
     
-    var tokens = metaTagContent.split(',');
+    //Remove spaces and split by ','
+    var tokens = metaTagContent.replace(/\s+/g,'').split(',');
     var metaInfo = {};
     
     for (var i = 0; i < tokens.length; i++) {
