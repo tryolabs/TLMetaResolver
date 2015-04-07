@@ -27,13 +27,13 @@ public class TLNativeAppActivity: UIActivity {
     
         :returns: A new instance of TLNativeAppActivity that can be shown in a UIActivityViewController
     */
-    init(appUrl: NSURL, applicationName appName: String, andIcon appIcon: UIImage) {
-        url = appUrl
-        name = appName
+    @objc public init(nativeAppInfo: TLNativeAppInfo) {
+        url = nativeAppInfo.url
+        name = nativeAppInfo.name
         
         //Scale the image to the correct size for an activity icon, according to the documentation
         let scale: CGFloat = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? 60 : 76
-        let scaledImage = appIcon.imageByScaleToSize(CGSizeMake(scale, scale))
+        let scaledImage = nativeAppInfo.icon.imageByScaleToSize(CGSizeMake(scale, scale))
         
         //Transform it to grayscale
         let scaledGrayImage = scaledImage.convertToGrayscale()

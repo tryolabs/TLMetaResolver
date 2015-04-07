@@ -10,11 +10,36 @@ import UIKit
 
 
 /**
+    This class is the result of the parsing of the meta tags. It contains the basic info to handle the content on the loaded page:
+
+    - name The name of the app as is in iTunes
+
+    - url The url to open the app on the devices
+
+    - icon The small version of the icon available in iTunes
+
+    This object can be used to create a TLNativeAppActivity that handle the presentation and basic interaction to fire the native app.
+*/
+public class TLNativeAppInfo: NSObject {
+    
+    private(set) var name: String
+    private(set) var url: NSURL
+    private(set) var icon: UIImage
+    
+    private init(name: String, url: NSURL, icon: UIImage) {
+        self.name = name
+        self.url = url
+        self.icon = icon
+    }
+}
+
+
+/**
     The closure called when the resolve process complete
 
     :param: activity An activity instance of TLNativeAppActivity representing the native app declared in the page as able to handle this content
 */
-public typealias TLMetaResolverComplete = (TLNativeAppActivity?) -> ()
+public typealias TLMetaResolverComplete = (TLNativeAppInfo?) -> ()
 
 /**
     The closure called when a fetch operation fail
@@ -258,76 +283,63 @@ extension UIWebView {
     */
     private func createActivityWithInfo(appInfo: NSDictionary, _ fetchUrl: TLMetaResolverFetchURL, _ fetchImage: TLMetaResolverFetchURL, _ onComplete: TLMetaResolverComplete) {
         
-        #if arch(i386) || arch(x86_64)
-            let isSimulator = true
-        #else
-            let isSimulator = false
-        #endif
+        let itunesUrl = NSURL(string: "https://itunes.apple.com/lookup?id=\(appInfo.appId)")!
         
-        //Check iff the app is installed, if we are running on the simulator asume it is.
-        if (isSimulator || UIApplication.sharedApplication().canOpenURL(appInfo.url)) {
+        fetchUrl(itunesUrl, {
+            //Fetch success handler
+            (data: NSData) -> () in
             
-            let itunesUrl = NSURL(string: "https://itunes.apple.com/lookup?id=\(appInfo.appId)")!
-            fetchUrl(itunesUrl, {
-                //Fetch success handler
-                (data: NSData) -> () in
+            //get a JSON out of that data
+            var error: NSError?
+            let itunesInfoJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
+            
+            if (error == nil) {
                 
-                //get a JSON out of that data
-                var error: NSError?
-                let itunesInfoJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
-                
-                if (error == nil) {
+                if let itunesResults = itunesInfoJSON as? NSDictionary {
                     
-                    if let itunesResults = itunesInfoJSON as? NSDictionary {
-                        
-                        //The response from iTunes is a list of matching records, because we search for app id is safe to pick the first one in the list if ther are any results.
-                        if let itunesAppInfo = itunesResults.firstResult {
-                            fetchImage(itunesAppInfo.iconUrl, {
-                                //Fetch image success handler
-                                (data: NSData) -> () in
-                                
-                                if let image = UIImage(data: data) {
-                                    let activity = TLNativeAppActivity(appUrl: appInfo.url, applicationName: itunesAppInfo.appName, andIcon: image)
-                                    self.performOnMain { onComplete(activity) }
-                                } else {
-                                    NSLog("Can't parse image data or it's not a valid image")
-                                    self.performOnMain { onComplete(nil) }
-                                }
-                                
-                            }, {
-                                //Fetch image error hanlder
-                                (error: NSError) -> () in
-                                
-                                NSLog("Can't fetch image: %@", error.description)
+                    //The response from iTunes is a list of matching records, because we search for app id is safe to pick the first one in the list if ther are any results.
+                    if let itunesAppInfo = itunesResults.firstResult {
+                        fetchImage(itunesAppInfo.iconUrl, {
+                            //Fetch image success handler
+                            (data: NSData) -> () in
+                            
+                            if let image = UIImage(data: data) {
+                                let nativeAppInfo = TLNativeAppInfo(name: itunesAppInfo.appName, url: appInfo.url, icon: image)
+                                self.performOnMain { onComplete(nativeAppInfo) }
+                            } else {
+                                NSLog("Can't parse image data or it's not a valid image")
                                 self.performOnMain { onComplete(nil) }
-                            })
-                        } else {
-                            NSLog("Can't find the provided app id on iTunes: %@", appInfo.appId)
+                            }
+                            
+                        }, {
+                            //Fetch image error hanlder
+                            (error: NSError) -> () in
+                            
+                            NSLog("Can't fetch image: %@", error.description)
                             self.performOnMain { onComplete(nil) }
-                        }
-                        
+                        })
                     } else {
-                        NSLog("Bad response form iTunes, object is not a dictionary")
+                        NSLog("Can't find the provided app id on iTunes: %@", appInfo.appId)
                         self.performOnMain { onComplete(nil) }
                     }
                     
                 } else {
-                    NSLog("Can't parse iTunes response: %@", error!.description)
+                    NSLog("Bad response form iTunes, object is not a dictionary")
                     self.performOnMain { onComplete(nil) }
                 }
                 
-            }, {
-                //Fetch error handler
-                (error: NSError) -> () in
-                
-                NSLog("Can't get info from iTunes: %@", error.description)
+            } else {
+                NSLog("Can't parse iTunes response: %@", error!.description)
                 self.performOnMain { onComplete(nil) }
-            })
+            }
             
-        } else {
-            NSLog("Can't open url: \(appInfo.url)")
-            onComplete(nil)
-        }
+        }, {
+            //Fetch error handler
+            (error: NSError) -> () in
+            
+            NSLog("Can't get info from iTunes: %@", error.description)
+            self.performOnMain { onComplete(nil) }
+        })
     }
     
     func performOnMain (closure: () -> ()) {

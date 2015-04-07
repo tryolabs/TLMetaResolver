@@ -17,7 +17,7 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     private var timer: NSTimer!
     private var resolvingMetaTags: Bool!
-    private var nativeActivity: TLNativeAppActivity!
+    private var appInfo: TLNativeAppInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +47,13 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
         if !resolvingMetaTags {
             resolvingMetaTags = true
             
-            webView.resolveMetaTags({ (activity: TLNativeAppActivity?) -> () in
-                if activity != nil {
-                    self.nativeActivity = activity!
+            webView.resolveMetaTags({ (appInfo: TLNativeAppInfo?) -> () in
+                if appInfo != nil {
+                    self.appInfo = appInfo!
                 }
                 
                 let actionBarItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: Selector("didSelecteAction"))
-                actionBarItem.enabled = activity != nil
+                actionBarItem.enabled = appInfo != nil
                 self.navigationItem.rightBarButtonItem = actionBarItem
             })
         }
@@ -61,6 +61,7 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     func didSelecteAction () {
         
+        let nativeActivity = TLNativeAppActivity(nativeAppInfo: appInfo)
         let activityController = UIActivityViewController(activityItems: [self.pageUrl], applicationActivities: [nativeActivity])
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
