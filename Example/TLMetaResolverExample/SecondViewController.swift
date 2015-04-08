@@ -9,6 +9,26 @@
 import UIKit
 import TLMetaResolver
 
+
+
+
+class NativeAppActivity: TLNativeAppActivity {
+    
+    var onPerform: (()->()) -> ()
+    
+    init(nativeAppInfo: TLNativeAppInfo, onPerform: (didFinish: ()->()) -> ()) {
+        self.onPerform = onPerform
+        super.init(nativeAppInfo: nativeAppInfo)
+    }
+    
+    override func performActivity() {
+        onPerform {
+            self.activityDidFinish(true)
+        }
+    }
+}
+
+
 class SecondViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
@@ -61,7 +81,42 @@ class SecondViewController: UIViewController, UIWebViewDelegate {
     
     func didSelecteAction () {
         
-        let nativeActivity = TLNativeAppActivity(nativeAppInfo: appInfo)
+        let nativeActivity = NativeAppActivity(nativeAppInfo: self.appInfo) { (didFinish) -> () in
+            
+            #if arch(i386) || arch(x86_64)
+                
+                let alertController = UIAlertController(title: "Open \(self.appInfo.name)", message: "Url: \(self.appInfo.url)", preferredStyle: .Alert)
+                
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (_) -> Void in
+                    didFinish()
+                }))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            #else
+                
+                if (UIApplication.sharedApplication().canOpenURL(self.appInfo.url)) {
+                    UIApplication.sharedApplication().openURL(self.appInfo.url)
+                    didFinish()
+                } else {
+                    
+                    let alertController = UIAlertController(title: "Oops!", message: "You don't have this app installed. Do you want to install it now?", preferredStyle: .Alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "Yes", style: .Cancel, handler: { (action) -> Void in
+                        let itunesUrl = NSURL(string: "http://itunes.apple.com/app/id\(self.appInfo.appId)")!;
+                        UIApplication.sharedApplication().openURL(itunesUrl)
+                        didFinish()
+                    }))
+                    
+                    alertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (_) -> Void in
+                        didFinish()
+                    }))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+            #endif
+        }
+        
         let activityController = UIActivityViewController(activityItems: [self.pageUrl], applicationActivities: [nativeActivity])
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {

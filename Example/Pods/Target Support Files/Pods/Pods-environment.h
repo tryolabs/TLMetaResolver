@@ -9,6 +9,6 @@
 // TLMetaResolver
 #define COCOAPODS_POD_AVAILABLE_TLMetaResolver
 #define COCOAPODS_VERSION_MAJOR_TLMetaResolver 0
-#define COCOAPODS_VERSION_MINOR_TLMetaResolver 0
+#define COCOAPODS_VERSION_MINOR_TLMetaResolver 1
 #define COCOAPODS_VERSION_PATCH_TLMetaResolver 1
 

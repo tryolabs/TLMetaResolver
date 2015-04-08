@@ -22,12 +22,14 @@ import UIKit
 */
 public class TLNativeAppInfo: NSObject {
     
-    private(set) var name: String
-    private(set) var url: NSURL
-    private(set) var icon: UIImage
+    public private(set) var name: String
+    public private(set) var appId: String
+    public private(set) var url: NSURL
+    public private(set) var icon: UIImage
     
-    private init(name: String, url: NSURL, icon: UIImage) {
+    private init(name: String, appId: String, url: NSURL, icon: UIImage) {
         self.name = name
+        self.appId = appId
         self.url = url
         self.icon = icon
     }
@@ -304,7 +306,7 @@ extension UIWebView {
                             (data: NSData) -> () in
                             
                             if let image = UIImage(data: data) {
-                                let nativeAppInfo = TLNativeAppInfo(name: itunesAppInfo.appName, url: appInfo.url, icon: image)
+                                let nativeAppInfo = TLNativeAppInfo(name: itunesAppInfo.appName, appId: appInfo.appId, url: appInfo.url, icon: image)
                                 self.performOnMain { onComplete(nativeAppInfo) }
                             } else {
                                 NSLog("Can't parse image data or it's not a valid image")

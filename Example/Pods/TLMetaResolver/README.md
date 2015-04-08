@@ -48,9 +48,7 @@ You can also do a quick check with:
 
     pod try TLMetaResolver
 
-Keep in mind that the Swift support in CocoaPods is in beta. If you want to try TLMetaResolver with CocoaPods first install the last beta for the version 0.36 (at the time of writing this the last one is 0.36.beta.2) with ``sudo gem install cocoapods --pre``. [This blog post](http://iosdevbits.blogspot.com/2014/12/finally-cocoapods-with-swift.html) can be usefull if you have any problem, for a complete explanation check the [Pod Authors Guide to CocoaPods Frameworks](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/).
-
-Or opt to clone the repo and integrate the code and assets under the Pod/ directory to your project as you like.
+You can always opt to clone the repo and integrate the code and assets under the Pod/ directory to your project as you like.
 
 ## Requirements
 
