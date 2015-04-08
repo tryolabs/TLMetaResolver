@@ -15,13 +15,13 @@ TLMetaResolver is an extension to UIWebView writen in Swift that adds the abilit
 
 TLMetaResolver adds a funtion to UIWebView that evaluate a JavaScript script in the context of the loaded web page. This script returns an _app id_ and _url_. The _app id_ is the id of the native app on iTunes, the _url_ is a special url used to fire the native app.
 
-With the _app id_ the extension perform a search on iTunes calling the [iTunes Search API](https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html) to get the app name and icon url. Then the icon image is downloaded and a TLNativeAppActivity is created and returned to be presented in a UIActivityViewController. When the activity is performed a call to ``UIApplication.sharedApplication().openURL()`` is made with the url pointing to the native app.
+With the _app id_ the extension perform a search on iTunes calling the [iTunes Search API](https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html) to get the app name and icon url. Then the icon image is downloaded and a TLNativeAppInfo object is created and returned in a callback. This object can be used to create a TLNativeAppActivity to be presented in a UIActivityViewController. When the activity is performed a call to ``UIApplication.sharedApplication().openURL()`` is made with the url pointing to the native app.
 
 ## Usage
 
-To use this code you should call one of the ``resolveMetaTags()`` functions once your page is loaded and provide a closure conforming the ``TLMetaResolverComplete`` type. Check the example project for a possible implementation, you can ``pod try TLMetaResolver``.
+You need to call one of the ``resolveMetaTags()`` functions once your page is loaded and provide a closure conforming the ``TLMetaResolverComplete`` type. Check the example project for a possible implementation, you can ``pod try TLMetaResolver``.
 
-One key point to remember is that ``webViewDidFinishLoad`` function of UIWebViewDelegate can be called many times so you should handle that case to avoid unnecesary calls to ``resolveMetaTags()``. The extension don't have any check at this level
+One key point to remember is that ``webViewDidFinishLoad`` function of UIWebViewDelegate can be called many times so you should handle that case to avoid unnecesary calls to ``resolveMetaTags()``. TLMetaResolver don't perform any special consideration at that level.
 
 There are two version of ``resolveMetaTags()`` that have slightly different parameters:
 
@@ -48,7 +48,7 @@ You can also do a quick check with:
 
     pod try TLMetaResolver
 
-You can always opt to clone the repo and integrate the code and assets under the Pod/ directory to your project as you like.
+Or opt to clone the repo and integrate the code and assets under the Pod/ directory to your project as you like.
 
 ## Requirements
 
