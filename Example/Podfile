@@ -1,2 +1,2 @@
 use_frameworks!
-pod 'TLMetaResolver', :git => 'https://github.com/tryolabs/TLMetaResolver'
+pod 'TLMetaResolver', :path => '../'
