@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TLMetaResolver"
-  s.version          = "0.1.2"
+  s.version          = "0.1.3"
   s.summary          = "TLMetaResolver is an extension to UIWebView that adds the ability to parse the meta tags in the loaded web page."
   s.homepage         = "https://github.com/tryolabs/TLMetaResolver"
   s.license          = 'MIT'
