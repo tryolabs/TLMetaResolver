@@ -48,7 +48,7 @@ extension FirstViewController: UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let secondController = segue.destinationViewController as SecondViewController
+        let secondController = segue.destinationViewController as! SecondViewController
         secondController.pageUrl = urlList[selectedRow]
     }
 }

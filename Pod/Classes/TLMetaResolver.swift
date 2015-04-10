@@ -72,27 +72,27 @@ private extension NSDictionary {
     
     var url: NSURL {
         let key = "url"
-        return NSURL(string:self[key] as String)!
+        return NSURL(string:self[key] as! String)!
     }
     
     var appId: String {
         let key = "appId"
-        return self[key] as String
+        return self[key] as! String
     }
     
     var appName: String {
         let key = "trackName"
-        return self[key] as String
+        return self[key] as! String
     }
     
     var iconUrl: NSURL {
         let key = "artworkUrl60"
-        return NSURL(string: self[key] as String)!
+        return NSURL(string: self[key] as! String)!
     }
     
     var firstResult: NSDictionary? {
         let key = "results"
-        let resultsList = self[key] as Array<AnyObject>
+        let resultsList = self[key] as! Array<AnyObject>
         return resultsList.count > 0 ? resultsList[0] as? NSDictionary : nil
     }
 }
