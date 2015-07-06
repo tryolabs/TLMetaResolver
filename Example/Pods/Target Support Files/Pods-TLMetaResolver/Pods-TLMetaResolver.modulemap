@@ -1,6 +1,0 @@
-framework module TLMetaResolver {
-  umbrella header "Pods-TLMetaResolver-umbrella.h"
-
-  export *
-  module * { export * }
-}

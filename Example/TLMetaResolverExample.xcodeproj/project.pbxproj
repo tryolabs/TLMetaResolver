@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		248FDFF32E7A2AD72718A53F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A483609FE90683EF623F6 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9BAA7F101B4AF5780001D4B8 /* TLBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA7F0C1B4AF5780001D4B8 /* TLBundleExtension.swift */; };
+		9BAA7F111B4AF5780001D4B8 /* TLMetaResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA7F0D1B4AF5780001D4B8 /* TLMetaResolver.swift */; };
+		9BAA7F121B4AF5780001D4B8 /* TLNativeAppActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA7F0E1B4AF5780001D4B8 /* TLNativeAppActivity.swift */; };
+		9BAA7F191B4AF58A0001D4B8 /* iconMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA7F151B4AF58A0001D4B8 /* iconMask.png */; };
+		9BAA7F1A1B4AF58A0001D4B8 /* iconMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA7F161B4AF58A0001D4B8 /* iconMask@2x.png */; };
+		9BAA7F1B1B4AF58A0001D4B8 /* TLMetaParser.js in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA7F171B4AF58A0001D4B8 /* TLMetaParser.js */; };
 		9BAB57491ABB52F20052A188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAB57481ABB52F20052A188 /* AppDelegate.swift */; };
 		9BAB574E1ABB52F20052A188 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB574C1ABB52F20052A188 /* Main.storyboard */; };
 		9BAB57501ABB52F20052A188 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB574F1ABB52F20052A188 /* Images.xcassets */; };
@@ -17,19 +22,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		104A483609FE90683EF623F6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1483E503D76716A78646AFD8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9BAA7F0C1B4AF5780001D4B8 /* TLBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLBundleExtension.swift; sourceTree = "<group>"; };
+		9BAA7F0D1B4AF5780001D4B8 /* TLMetaResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLMetaResolver.swift; sourceTree = "<group>"; };
+		9BAA7F0E1B4AF5780001D4B8 /* TLNativeAppActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLNativeAppActivity.swift; sourceTree = "<group>"; };
+		9BAA7F151B4AF58A0001D4B8 /* iconMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconMask.png; sourceTree = "<group>"; };
+		9BAA7F161B4AF58A0001D4B8 /* iconMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconMask@2x.png"; sourceTree = "<group>"; };
+		9BAA7F171B4AF58A0001D4B8 /* TLMetaParser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = TLMetaParser.js; sourceTree = "<group>"; };
 		9BAB57431ABB52F20052A188 /* TLMetaResolverExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLMetaResolverExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BAB57471ABB52F20052A188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BAB57481ABB52F20052A188 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BAB574D1ABB52F20052A188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BAB574F1ABB52F20052A188 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9BAB57521ABB52F20052A188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9BAB575D1ABB52F20052A188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BAB575E1ABB52F20052A188 /* TLMetaResolverExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLMetaResolverExampleTests.swift; sourceTree = "<group>"; };
 		9BAB57681ABB54050052A188 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		9BAB57691ABB54050052A188 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		AA5D16A0644B446A9CF7D27D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,29 +43,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				248FDFF32E7A2AD72718A53F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2088AF8892EB1A5984B0FFD3 /* Frameworks */ = {
+		9BAA7F0A1B4AF5780001D4B8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				104A483609FE90683EF623F6 /* Pods.framework */,
+				9BAA7F0C1B4AF5780001D4B8 /* TLBundleExtension.swift */,
+				9BAA7F0D1B4AF5780001D4B8 /* TLMetaResolver.swift */,
+				9BAA7F0E1B4AF5780001D4B8 /* TLNativeAppActivity.swift */,
 			);
-			name = Frameworks;
+			name = Classes;
+			path = ../../Pod/Classes;
+			sourceTree = "<group>";
+		};
+		9BAA7F131B4AF58A0001D4B8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9BAA7F151B4AF58A0001D4B8 /* iconMask.png */,
+				9BAA7F161B4AF58A0001D4B8 /* iconMask@2x.png */,
+				9BAA7F171B4AF58A0001D4B8 /* TLMetaParser.js */,
+			);
+			name = Assets;
+			path = ../../Pod/Assets;
 			sourceTree = "<group>";
 		};
 		9BAB573A1ABB52F20052A188 = {
 			isa = PBXGroup;
 			children = (
 				9BAB57451ABB52F20052A188 /* TLMetaResolverExample */,
-				9BAB575B1ABB52F20052A188 /* TLMetaResolverExampleTests */,
 				9BAB57441ABB52F20052A188 /* Products */,
-				E0FA146F42329DAA4B1EB3F7 /* Pods */,
-				2088AF8892EB1A5984B0FFD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +90,7 @@
 		9BAB57451ABB52F20052A188 /* TLMetaResolverExample */ = {
 			isa = PBXGroup;
 			children = (
+				9BAA7F0A1B4AF5780001D4B8 /* Classes */,
 				9BAB57681ABB54050052A188 /* FirstViewController.swift */,
 				9BAB57691ABB54050052A188 /* SecondViewController.swift */,
 				9BAB57481ABB52F20052A188 /* AppDelegate.swift */,
@@ -88,35 +105,10 @@
 		9BAB57461ABB52F20052A188 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BAA7F131B4AF58A0001D4B8 /* Assets */,
 				9BAB57471ABB52F20052A188 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9BAB575B1ABB52F20052A188 /* TLMetaResolverExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				9BAB575E1ABB52F20052A188 /* TLMetaResolverExampleTests.swift */,
-				9BAB575C1ABB52F20052A188 /* Supporting Files */,
-			);
-			path = TLMetaResolverExampleTests;
-			sourceTree = "<group>";
-		};
-		9BAB575C1ABB52F20052A188 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9BAB575D1ABB52F20052A188 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E0FA146F42329DAA4B1EB3F7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AA5D16A0644B446A9CF7D27D /* Pods.debug.xcconfig */,
-				1483E503D76716A78646AFD8 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,12 +118,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BAB57621ABB52F20052A188 /* Build configuration list for PBXNativeTarget "TLMetaResolverExample" */;
 			buildPhases = (
-				D0E2F74E87FB0C37B3CB4152 /* Check Pods Manifest.lock */,
 				9BAB573F1ABB52F20052A188 /* Sources */,
 				9BAB57401ABB52F20052A188 /* Frameworks */,
 				9BAB57411ABB52F20052A188 /* Resources */,
-				55E74D489A6DC16333DA16B6 /* Embed Pods Frameworks */,
-				26C40F51168AE4E733A64A0C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,61 +168,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAA7F191B4AF58A0001D4B8 /* iconMask.png in Resources */,
 				9BAB574E1ABB52F20052A188 /* Main.storyboard in Resources */,
 				9BAB57531ABB52F20052A188 /* LaunchScreen.xib in Resources */,
 				9BAB57501ABB52F20052A188 /* Images.xcassets in Resources */,
+				9BAA7F1B1B4AF58A0001D4B8 /* TLMetaParser.js in Resources */,
+				9BAA7F1A1B4AF58A0001D4B8 /* iconMask@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		26C40F51168AE4E733A64A0C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55E74D489A6DC16333DA16B6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0E2F74E87FB0C37B3CB4152 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BAB573F1ABB52F20052A188 /* Sources */ = {
@@ -241,6 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAB576B1ABB54050052A188 /* SecondViewController.swift in Sources */,
+				9BAA7F121B4AF5780001D4B8 /* TLNativeAppActivity.swift in Sources */,
+				9BAA7F111B4AF5780001D4B8 /* TLMetaResolver.swift in Sources */,
+				9BAA7F101B4AF5780001D4B8 /* TLBundleExtension.swift in Sources */,
 				9BAB57491ABB52F20052A188 /* AppDelegate.swift in Sources */,
 				9BAB576A1ABB54050052A188 /* FirstViewController.swift in Sources */,
 			);
@@ -349,7 +296,6 @@
 		};
 		9BAB57631ABB52F20052A188 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA5D16A0644B446A9CF7D27D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TLMetaResolverExample/Info.plist;
@@ -360,7 +306,6 @@
 		};
 		9BAB57641ABB52F20052A188 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1483E503D76716A78646AFD8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TLMetaResolverExample/Info.plist;

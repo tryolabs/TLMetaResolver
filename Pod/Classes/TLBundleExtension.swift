@@ -15,10 +15,15 @@ extension NSBundle {
     private class InnerClass {}
     
     class func metaResolverBundle () -> NSBundle? {
-        if let bundlePath = NSBundle(forClass: InnerClass.self).pathForResource("TLMetaResolver", ofType: "bundle") {
-            return NSBundle(path: bundlePath)
+        
+        if let useAppBundle = NSProcessInfo.processInfo().environment["use_app_bundle"] as? String where useAppBundle == "YES" {
+            return NSBundle.mainBundle()
         } else {
-            return nil
+            if let bundlePath = NSBundle(forClass: InnerClass.self).pathForResource("TLMetaResolver", ofType: "bundle") {
+                return NSBundle(path: bundlePath)
+            } else {
+                return nil
+            }
         }
     }
     
