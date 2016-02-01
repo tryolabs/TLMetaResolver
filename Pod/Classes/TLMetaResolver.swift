@@ -48,14 +48,14 @@ public typealias TLMetaResolverComplete = (TLNativeAppInfo?) -> ()
 
     :param: error The error object that cause the fetch to fail
 */
-public typealias TLMetaResolverFetchError = (NSError) -> ()
+public typealias TLMetaResolverFetchError = (NSError?) -> ()
 
 /**
     The closure called when the fetch succeed
 
     :param: responseData The data resulting of a fetch operation
 */
-public typealias TLMetaResolverFetchSuccess = (NSData) -> ()
+public typealias TLMetaResolverFetchSuccess = (NSData?) -> ()
 
 /**
     A closure representing a fetch operation.
@@ -144,40 +144,36 @@ extension UIWebView {
                     if let metaInfoData = metaInfoString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) {
                         
                         //get a JSON out of that data
-                        var error: NSError?
-                        let metaInfoJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(metaInfoData, options: NSJSONReadingOptions.AllowFragments, error: &error)
-                        
-                        if (error == nil) {
-                            
+                        do {
+                            let metaInfoJSON = try NSJSONSerialization.JSONObjectWithData(metaInfoData, options: NSJSONReadingOptions.AllowFragments)
+
                             //Try to fit it in a dictionary
                             if let metaInfo = metaInfoJSON as? NSDictionary {
-                                
                                 var fetchUrlImp: TLMetaResolverFetchURL
                                 var fetchImageImp: TLMetaResolverFetchURL
-                                
+
                                 //Check if a custom implementation of the 'fetch' closures was provide, if not set the default one
                                 if (fetchUrl == nil) {
                                     fetchUrlImp = defatulFetchUrl()
                                 } else {
                                     fetchUrlImp = fetchUrl!
                                 }
-                                
+
                                 if (fetchImage == nil) {
                                     fetchImageImp = defaultFetchImage()
                                 } else {
                                     fetchImageImp = fetchImage!
                                 }
-                                
+
                                 //Try to create the activity
                                 createActivityWithInfo(metaInfo, fetchUrlImp, fetchImageImp, onComplete)
-                                
+
                             } else {
                                 NSLog("Malformed JSON, can't read it as a Dictionary")
                                 onComplete(nil)
                             }
-                            
-                        } else {
-                            NSLog("Can't parse meta info json: %@", error!.localizedDescription)
+                        } catch let error as NSError {
+                            NSLog("Can't parse meta info json: %@", error.localizedDescription)
                             onComplete(nil)
                         }
                         
@@ -208,27 +204,15 @@ extension UIWebView {
     private func metaTagsParserJS () -> String? {
         
         if let parserPath = NSBundle.metaResolverBundle()?.pathForResource("TLMetaParser", ofType: "js") {
-            
-            var error: NSError?
-            if let parserJs = String(contentsOfFile: parserPath, encoding: NSUTF8StringEncoding, error: &error) {
-                
-                if (error != nil) {
-                    
-                    NSLog("Can't get parser content: %@", error!.localizedDescription)
-                    return nil
-                    
-                } else {
-                    
-                    //The script 'main' function receives as argument wether we are running on an iPad or iPhone to choose the correct meta tags
-                    let isIPad = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? "false" : "true"
-                    return parserJs + ";parseMetaTags(\(isIPad))"
-                }
-                
-            } else {
-                NSLog("Can't read the parser content as String")
+            do {
+                let parserJs = try String(contentsOfFile: parserPath, encoding: NSUTF8StringEncoding)
+                //The script 'main' function receives as argument wether we are running on an iPad or iPhone to choose the correct meta tags
+                let isIPad = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? "false" : "true"
+                return parserJs + ";parseMetaTags(\(isIPad))"
+            } catch let error as NSError {
+                NSLog("Can't get parser content: %@", error.localizedDescription)
                 return nil
             }
-            
         } else {
             NSLog("Can't find the JavaScript file")
             return nil
@@ -243,7 +227,7 @@ extension UIWebView {
             (url: NSURL, successHandler: TLMetaResolverFetchSuccess, errorHandler: TLMetaResolverFetchError) -> () in
             
             NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
-                (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+                (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 
                 if (error == nil) {
                     successHandler(data)
@@ -263,19 +247,27 @@ extension UIWebView {
             (url: NSURL, successHandler: TLMetaResolverFetchSuccess, errorHandler: TLMetaResolverFetchError) -> () in
             
             NSURLSession.sharedSession().downloadTaskWithURL(url, completionHandler: {
-                (location: NSURL!, response: NSURLResponse!, error: NSError!) -> Void in
-                
-                if (error == nil) {
-                    if let data = NSData(contentsOfURL: location) {
-                        successHandler(data)
-                    } else {
-                        let error = NSError(domain: "TLMetaResolver", code: 1, userInfo: [NSLocalizedDescriptionKey: "Can't read temp file at url: \(location)"])
-                        errorHandler(error)
-                    }
-                    
-                } else {
-                    errorHandler(error)
+                (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+
+                guard error == nil else {
+                    errorHandler(error!)
+                    return
                 }
+
+                guard let location = location else {
+                    let error = NSError(domain: "TLMetaResolver", code: 1, userInfo: [NSLocalizedDescriptionKey: "No temp file to read from."])
+                    errorHandler(error)
+                    return
+                }
+
+                guard let data = NSData(contentsOfURL: location) else {
+                    let error = NSError(domain: "TLMetaResolver", code: 1, userInfo: [NSLocalizedDescriptionKey: "Can't read temp file at url: \(location)"])
+                    errorHandler(error)
+                    return
+                }
+
+                successHandler(data)
+
             }).resume()
         }
     }
@@ -289,57 +281,57 @@ extension UIWebView {
         
         fetchUrl(itunesUrl, {
             //Fetch success handler
-            (data: NSData) -> () in
-            
+            (data: NSData?) -> () in
+
+            guard let data = data else {
+                NSLog("No data provided.")
+                return
+            }
+
             //get a JSON out of that data
-            var error: NSError?
-            let itunesInfoJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
-            
-            if (error == nil) {
-                
+            do {
+                let itunesInfoJSON: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+
                 if let itunesResults = itunesInfoJSON as? NSDictionary {
-                    
                     //The response from iTunes is a list of matching records, because we search for app id is safe to pick the first one in the list if ther are any results.
                     if let itunesAppInfo = itunesResults.firstResult {
                         fetchImage(itunesAppInfo.iconUrl, {
                             //Fetch image success handler
-                            (data: NSData) -> () in
-                            
-                            if let image = UIImage(data: data) {
+                            (data: NSData?) -> () in
+
+                            if let data = data, let image = UIImage(data: data) {
                                 let nativeAppInfo = TLNativeAppInfo(name: itunesAppInfo.appName, appId: appInfo.appId, url: appInfo.url, icon: image)
                                 self.performOnMain { onComplete(nativeAppInfo) }
                             } else {
                                 NSLog("Can't parse image data or it's not a valid image")
                                 self.performOnMain { onComplete(nil) }
                             }
-                            
+
                         }, {
                             //Fetch image error hanlder
-                            (error: NSError) -> () in
-                            
-                            NSLog("Can't fetch image: %@", error.description)
+                            (error: NSError?) -> () in
+
+                            NSLog("Can't fetch image" + (error.map { ": " + $0.description } ?? "") + ".")
                             self.performOnMain { onComplete(nil) }
                         })
                     } else {
                         NSLog("Can't find the provided app id on iTunes: %@", appInfo.appId)
                         self.performOnMain { onComplete(nil) }
                     }
-                    
+
                 } else {
                     NSLog("Bad response form iTunes, object is not a dictionary")
                     self.performOnMain { onComplete(nil) }
                 }
-                
-            } else {
-                NSLog("Can't parse iTunes response: %@", error!.description)
+            } catch let error as NSError {
+                NSLog("Can't parse iTunes response: %@", error.description)
                 self.performOnMain { onComplete(nil) }
             }
-            
         }, {
             //Fetch error handler
-            (error: NSError) -> () in
-            
-            NSLog("Can't get info from iTunes: %@", error.description)
+            (error: NSError?) -> () in
+
+            NSLog("Can't get info from iTunes" + (error.map { ": " + $0.description } ?? "") + ".")
             self.performOnMain { onComplete(nil) }
         })
     }

@@ -34,13 +34,13 @@ class FirstViewController: UITableViewController {
         }))
         
         dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.presentViewController(alert, animated: true, completion: .None)
         }
     }
 }
 
 
-extension FirstViewController: UITableViewDelegate {
+extension FirstViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedRow = indexPath.row

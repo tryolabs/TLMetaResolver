@@ -16,7 +16,7 @@ public class TLNativeAppActivity: UIActivity {
     
     var url: NSURL
     var name: String
-    var icon: UIImage
+    var icon : UIImage?
     
     /**
         Create a new TLNativeAppActivity with the given parameters.
@@ -73,7 +73,7 @@ public class TLNativeAppActivity: UIActivity {
 
 private extension UIImage {
     
-    func imageByApplyingMask (maskImage: UIImage) -> (UIImage) {
+    func imageByApplyingMask (maskImage: UIImage) -> UIImage? {
         
         let maskRef = maskImage.CGImage
         let mask = CGImageMaskCreate(
@@ -83,15 +83,14 @@ private extension UIImage {
             CGImageGetBitsPerPixel(maskRef),
             CGImageGetBytesPerRow(maskRef),
             CGImageGetDataProvider(maskRef), nil, false)
-        
-        let maskedImageRef = CGImageCreateWithMask(CGImage, mask)
-        let scale = UIScreen.mainScreen().scale
-        let maskedImage = UIImage(CGImage: maskedImageRef, scale: scale, orientation: .Up)!
-        
-        return maskedImage
+
+        return CGImageCreateWithMask(CGImage, mask).map { maskedImageRef in
+            let scale = UIScreen.mainScreen().scale
+            return UIImage(CGImage: maskedImageRef, scale: scale, orientation: .Up)
+        }
     }
     
-    func imageByScaleToSize (newSize: CGSize) -> (UIImage) {
+    func imageByScaleToSize (newSize: CGSize) -> UIImage {
         //UIGraphicsBeginImageContext(newSize);
         // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
         // Pass 1.0 to force exact pixel size.
@@ -103,7 +102,7 @@ private extension UIImage {
         return newImage;
     }
     
-    func convertToGrayscale () -> (UIImage) {
+    func convertToGrayscale () -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale);
         let imageRect = CGRectMake(0, 0, size.width, size.height);
         
@@ -114,10 +113,10 @@ private extension UIImage {
         CGContextFillRect(ctx, imageRect);
         
         // Draw the luminosity on top of the white background to get grayscale
-        drawInRect(imageRect, blendMode: kCGBlendModeLuminosity, alpha: 1.0)
+        drawInRect(imageRect, blendMode: .Luminosity, alpha: 1.0)
         
         // Apply the source image's alpha
-        drawInRect(imageRect, blendMode: kCGBlendModeDestinationIn, alpha: 1.0)
+        drawInRect(imageRect, blendMode: .DestinationIn, alpha: 1.0)
         
         let grayscaleImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
