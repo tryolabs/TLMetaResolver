@@ -16,7 +16,7 @@ extension NSBundle {
     
     class func metaResolverBundle () -> NSBundle? {
         
-        if let useAppBundle = NSProcessInfo.processInfo().environment["use_app_bundle"] as? String where useAppBundle == "YES" {
+        if let useAppBundle = NSProcessInfo.processInfo().environment["use_app_bundle"] where useAppBundle == "YES" {
             return NSBundle.mainBundle()
         } else {
             if let bundlePath = NSBundle(forClass: InnerClass.self).pathForResource("TLMetaResolver", ofType: "bundle") {
